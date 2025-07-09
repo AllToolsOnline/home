@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllToolsOnline - Free Tools for Everyone</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #334155; /* Darker text for readability */
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm py-4 px-6 md:px-10 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo/Site Title -->
+            <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition duration-300 ease-in-out">
+                AllToolsOnline
+            </a>
+
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav id="main-nav" class="hidden md:flex space-x-6">
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Home</a>
+                <a href="#tools" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Tools</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">About Us</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 ease-in-out">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu (hidden by default) -->
+        <nav id="mobile-menu" class="md:hidden mt-4 space-y-2 px-4 pb-2 bg-white border-t border-gray-200 hidden">
+            <a href="#" class="block text-gray-700 hover:bg-gray-100 py-2 px-3 rounded-md font-medium transition duration-300 ease-in-out">Home</a>
+            <a href="#tools" class="block text-gray-700 hover:bg-gray-100 py-2 px-3 rounded-md font-medium transition duration-300 ease-in-out">Tools</a>
+            <a href="#about" class="block text-gray-700 hover:bg-gray-100 py-2 px-3 rounded-md font-medium transition duration-300 ease-in-out">About Us</a>
+            <a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 px-3 rounded-md font-medium transition duration-300 ease-in-out">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-20 px-6 md:px-10 text-center rounded-b-lg shadow-lg">
+        <div class="container mx-auto max-w-3xl">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                Your Go-To Hub for <span class="text-yellow-300">Free Online Tools</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90">
+                Discover a wide array of powerful and easy-to-use tools for all your needs, absolutely free.
+            </p>
+            <a href="#tools" class="inline-block bg-white text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105">
+                Explore Our Tools
+            </a>
+        </div>
+    </section>
+
+    <!-- Search Bar Section -->
+    <section class="py-12 px-6 md:px-10 -mt-10 relative z-10">
+        <div class="container mx-auto max-w-2xl bg-white p-6 rounded-xl shadow-xl border border-gray-100">
+            <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-400 transition duration-200 ease-in-out">
+                <input type="text" id="tool-search" placeholder="Search for a tool (e.g., 'PDF converter', 'image resizer')"
+                       class="flex-grow p-3 rounded-l-lg outline-none text-gray-800 placeholder-gray-400 text-base md:text-lg border-r border-gray-200">
+                <button class="bg-blue-600 text-white p-3 rounded-r-lg hover:bg-blue-700 transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tools Section -->
+    <section id="tools" class="py-16 px-6 md:px-10 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Popular Tools</h2>
+
+            <div id="tool-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Tool Card 1 -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100" data-keywords="pdf converter merge split compress">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-600 rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">PDF Converter</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Convert PDFs to various formats and vice versa, merge, split, and compress your documents easily.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                        Use Tool
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Tool Card 2 -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100" data-keywords="image resizer compressor editor crop">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 text-green-600 rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Image Resizer</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Quickly resize, crop, and compress your images without losing quality.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                        Use Tool
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Tool Card 3 -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100" data-keywords="text counter word character line">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 text-purple-600 rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Word Counter</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Count words, characters, sentences, and paragraphs in your text instantly.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                        Use Tool
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Tool Card 4 -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100" data-keywords="url shortener link shortener custom url">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-red-600 rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.808a4 4 0 00-.582-.19m2.928 6.432l2.559-2.559a4 4 0 10-5.656-5.656l-1.102 1.101m-.758-4.808a4 4 0 00-.582-.19"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">URL Shortener</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Shorten long URLs into concise, shareable links instantly.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                        Use Tool
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Add more tool cards as needed -->
+                <div class="tool-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100" data-keywords="color picker hex rgb hsl">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 text-yellow-600 rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2V5a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-4.414-4.414A1 1 0 0012.586 3H10a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">Color Picker</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Select and get hex, RGB, and HSL values for any color on your screen.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                        Use Tool
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <div class="tool-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 border border-gray-100" data-keywords="qr code generator create scan">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full p-3 mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4m8-8a4 4 0 100 8 4 4 0 000-8zm0 0v.01"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900">QR Code Generator</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Generate QR codes for URLs, text, Wi-Fi, and more.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium flex items-center">
+                        Use Tool
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 px-6 md:px-10 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">About AllToolsOnline</h2>
+            <div class="prose lg:prose-lg mx-auto text-gray-700">
+                <p class="mb-4">
+                    At <strong class="text-blue-600">AllToolsOnline</strong>, our mission is to empower individuals and businesses by providing a comprehensive suite of high-quality, free online tools. We believe that essential digital utilities should be accessible to everyone, without barriers or hidden costs.
+                </p>
+                <p class="mb-4">
+                    Our platform is designed with simplicity and efficiency in mind. Whether you need to convert a document, resize an image, count words, or generate a QR code, our tools are built to deliver accurate results quickly and securely. We are constantly expanding our collection, driven by user feedback and the evolving needs of the digital world.
+                </p>
+                <p>
+                    We are committed to maintaining a user-friendly experience, ensuring that even those new to online tools can navigate and utilize our services with ease. Your privacy and data security are paramount to us; all operations are performed client-side whenever possible, and we adhere to strict data protection principles.
+                </p>
+                <p class="mt-6 text-center text-blue-600 font-semibold">
+                    Join our growing community and simplify your daily tasks with AllToolsOnline!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Newsletter Section (Optional but good for engagement) -->
+    <section class="bg-blue-600 text-white py-16 px-6 md:px-10 text-center rounded-t-lg shadow-inner">
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated!</h2>
+            <p class="text-lg mb-8 opacity-90">
+                Get the latest news about new tools and features directly in your inbox.
+            </p>
+            <form class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <input type="email" placeholder="Enter your email address"
+                       class="w-full sm:w-auto flex-grow px-5 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200 ease-in-out shadow-md">
+                <button type="submit" class="bg-white text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 md:px-10 bg-gray-50">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Get in Touch</h2>
+            <p class="text-center text-gray-700 mb-8">
+                Have questions, suggestions, or feedback? We'd love to hear from you!
+            </p>
+            <form class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                <div class="mb-6">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name"
+                           class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200 ease-in-out">
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com"
+                           class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200 ease-in-out">
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Your message here..."
+                              class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200 ease-in-out resize-y"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:scale-105">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-10">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <p>&copy; 2025 AllToolsOnline. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">Privacy Policy</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300 ease-in-out">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // JavaScript for Search Functionality
+        const toolSearchInput = document.getElementById('tool-search');
+        const toolCards = document.querySelectorAll('.tool-card');
+
+        toolSearchInput.addEventListener('keyup', (event) => {
+            const searchTerm = event.target.value.toLowerCase();
+
+            toolCards.forEach(card => {
+                const keywords = card.dataset.keywords.toLowerCase();
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                if (keywords.includes(searchTerm) || title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block'; // Show the card
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
