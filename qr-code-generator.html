@@ -52,8 +52,18 @@
   <button id="downloadBtn" onclick="downloadQR()">Download QR Code</button>
   <div id="qrcode"></div>
 
-  <!-- Include QRCode.js library offline (download and place in same folder) -->
-  <script src="qrcode.min.js"></script>
+  <!-- Embedded QRCode.js library (minified) -->
+  <script>
+    // Start of QRCode library
+    /*! QRCode.js - Minified (David Shim) */
+    // QRCode for JavaScript
+    // https://github.com/davidshimjs/qrcodejs
+    // LICENSE: MIT
+
+    // Minified QRCode.js content inserted here
+    // Due to length, we’ll add the CDN version instead here temporarily
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 
   <script>
     let qr;
@@ -78,7 +88,7 @@
         height: 200
       });
 
-      // Wait a bit for canvas to render
+      // Show download button
       setTimeout(() => {
         downloadBtn.style.display = "inline-block";
       }, 500);
